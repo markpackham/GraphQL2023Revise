@@ -14,4 +14,7 @@ type Author{
     name: String!
     verified: Boolean!
 }
+type Query {
+    reviews: [Reviews]
+}
 `;
