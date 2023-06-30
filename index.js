@@ -41,4 +41,20 @@ query ExampleQuery {
     platform
   }
 }
+
+
+query ExampleQuery {
+  authors {
+   name
+   verified 
+  }
+}
+
+query ExampleQuery {
+  reviews {
+    id
+    rating
+    content
+  }
+}
 */
