@@ -57,4 +57,11 @@ query ExampleQuery {
     content
   }
 }
+
+query ExampleQuery {
+  reviews {
+    rating
+  }
+}
+
 */
