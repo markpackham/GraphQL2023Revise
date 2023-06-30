@@ -30,3 +30,15 @@ const { url } = await startStandaloneServer(server, {
 });
 
 console.log(`Server ready at port 4000`);
+
+/*
+Example query for
+http://localhost:4000/
+
+query ExampleQuery {
+  games {
+    title
+    platform
+  }
+}
+*/
