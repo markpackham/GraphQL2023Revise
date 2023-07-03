@@ -16,6 +16,9 @@ const resolvers = {
     authors() {
       return db.authors;
     },
+    review(_, args) {
+      return db.reviews.find((review) => review.id === args.id);
+    },
   },
 };
 
@@ -30,38 +33,3 @@ const { url } = await startStandaloneServer(server, {
 });
 
 console.log(`Server ready at port 4000`);
-
-/*
-Example query for
-http://localhost:4000/
-
-query ExampleQuery {
-  games {
-    title
-    platform
-  }
-}
-
-
-query ExampleQuery {
-  authors {
-   name
-   verified 
-  }
-}
-
-query ExampleQuery {
-  reviews {
-    id
-    rating
-    content
-  }
-}
-
-query ExampleQuery {
-  reviews {
-    rating
-  }
-}
-
-*/
