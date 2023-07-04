@@ -31,6 +31,11 @@ const resolvers = {
       return db.reviews.filter((r) => r.game_id === parent.id);
     },
   },
+  Author: {
+    reviews(parent) {
+      return db.reviews.filter((r) => r.author_id === parent.id);
+    },
+  },
 };
 
 const server = new ApolloServer({
@@ -75,6 +80,22 @@ query GameQuery($id: ID!) {
 
 {
   "id": "2"
+}
+
+
+// Get reviews for an author
+query AuthorQuery($id: ID!) {
+ author(id: $id){
+  name,
+  reviews {
+    rating
+    content
+  }
+ }
+}
+
+{
+  "id": "1"
 }
 
 
