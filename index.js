@@ -107,4 +107,23 @@ query AuthorQuery($id: ID!) {
 }
 
 
+// Get a game title and platform from a review
+query ReviewsQuery($id: ID!){
+  review(id: $id){
+    rating
+    game{
+      title
+      platform
+    },
+    author {
+      name
+      verified
+    }
+  }
+}
+
+{
+  "id": "1"
+}
+
 */
