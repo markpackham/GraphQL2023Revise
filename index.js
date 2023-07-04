@@ -126,4 +126,23 @@ query ReviewsQuery($id: ID!){
   "id": "1"
 }
 
+
+// get all reviews associated with a game
+query ReviewsQuery($id: ID!){
+  review(id: $id){
+    rating
+    game{
+      title
+      platform
+      reviews{
+        rating
+      }
+    },
+  }
+}
+
+{
+  "id": "1"
+}
+
 */
