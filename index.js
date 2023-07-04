@@ -61,4 +61,21 @@ query ReviewQuery($id: ID!) {
   "id": "1"
 }
 
+
+// Get reviews for a game
+query GameQuery($id: ID!) {
+ game(id: $id){
+  title,
+  reviews {
+    rating
+    content
+  }
+ }
+}
+
+{
+  "id": "2"
+}
+
+
 */
