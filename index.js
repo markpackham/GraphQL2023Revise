@@ -1,6 +1,7 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import db from "./_db.js";
+import cors from "cors";
 
 // types
 import { typeDefs } from "./schema.js";
@@ -49,6 +50,7 @@ const resolvers = {
       db.games = db.games.filter((g) => g.id !== args.id);
       return db.games;
     },
+    addGame(_, args) {},
   },
 };
 
