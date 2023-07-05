@@ -44,6 +44,12 @@ const resolvers = {
       return db.games.find((g) => g.id === parent.game_id);
     },
   },
+  Mutation: {
+    deleteGame(_, args) {
+      db.games = db.games.filter((g) => g.id !== args.id);
+      return db.games;
+    },
+  },
 };
 
 const server = new ApolloServer({
@@ -55,8 +61,6 @@ const server = new ApolloServer({
 const { url } = await startStandaloneServer(server, {
   listen: { port: 4000 },
 });
-
-console.log(`Server ready at port 4000`);
 
 /*
 Query a single review with id of 1
