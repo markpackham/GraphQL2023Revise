@@ -50,7 +50,14 @@ const resolvers = {
       db.games = db.games.filter((g) => g.id !== args.id);
       return db.games;
     },
-    addGame(_, args) {},
+    addGame(_, args) {
+      let game = {
+        ...args.game,
+        id: Math.floor(Math.random() * 1000).toString(),
+      };
+      db.games.push(game);
+      return game;
+    },
   },
 };
 
@@ -151,7 +158,7 @@ query ReviewsQuery($id: ID!){
   "id": "1"
 }
 
-
+// Delete a game
 mutation DeleteMutation($id: ID!){
   deleteGame(id: $id){
     id
@@ -163,4 +170,21 @@ mutation DeleteMutation($id: ID!){
 {
   "id": "2"
  }
+
+
+ // Add a new game
+ mutation AddMutation($game: AddGameInput!){
+  addGame(game: $game){
+    id
+    title
+    platform
+  }
+}
+
+{
+  "game": {
+    "title": "Halo",
+    "platform": ["Xbox"]
+  }
+}
 */
