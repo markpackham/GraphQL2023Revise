@@ -149,4 +149,16 @@ query ReviewsQuery($id: ID!){
   "id": "1"
 }
 
+
+mutation DeleteMutation($id: ID!){
+  deleteGame(id: $id){
+    id
+    title
+    platform
+  }
+}
+
+{
+  "id": "2"
+ }
 */
