@@ -85,6 +85,15 @@ const { url } = await startStandaloneServer(server, {
 });
 
 /*
+query all games
+query GamesQuery {
+  games {
+    title
+    platform
+  }
+}
+
+
 Query a single review with id of 1
 
 query ReviewQuery($id: ID!) {
