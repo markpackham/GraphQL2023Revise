@@ -27,6 +27,7 @@ const resolvers = {
       return db.authors.find((author) => author.id === args.id);
     },
   },
+
   Game: {
     reviews(parent) {
       return db.reviews.filter((r) => r.game_id === parent.id);
@@ -45,6 +46,7 @@ const resolvers = {
       return db.games.find((g) => g.id === parent.game_id);
     },
   },
+
   Mutation: {
     deleteGame(_, args) {
       db.games = db.games.filter((g) => g.id !== args.id);
@@ -57,6 +59,17 @@ const resolvers = {
       };
       db.games.push(game);
       return game;
+    },
+    updateGame(_, args) {
+      db.games = db.games.map((g) => {
+        if (g.id === args.id) {
+          return { ...g, ...args.edits };
+        }
+
+        return g;
+      });
+
+      return db.games.find((g) => g.id === args.id);
     },
   },
 };
