@@ -200,4 +200,20 @@ mutation DeleteMutation($id: ID!){
     "platform": ["Xbox"]
   }
 }
+
+// edit/update game
+mutation EditMutation($edits: EditGameInput!, $id: ID!){
+  updateGame(edits: $edits, id: $id){
+    title
+    platform
+  }
+}
+
+{
+  "edits": {
+   "title": "Super Metroid",
+   "platform": ["Snes"]" 
+  },
+  "id": "2"
+}
 */
